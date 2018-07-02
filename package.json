@@ -1,0 +1,34 @@
+{
+  "name": "arn2url",
+  "version": "0.0.1",
+  "description": "Convert ARNs to URLs",
+  "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/nak2k/node-arn2url/issues"
+  },
+  "dependencies": {
+    "arn2": "^0.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.9.1"
+  },
+  "homepage": "https://github.com/nak2k/node-arn2url",
+  "keywords": [
+    "aws",
+    "arn"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nak2k/node-arn2url.git"
+  },
+  "scripts": {
+    "prepublishOnly": "npm t",
+    "test": "tape test/test*.js"
+  },
+  "files": [
+    "README.md",
+    "lib/"
+  ]
+}
