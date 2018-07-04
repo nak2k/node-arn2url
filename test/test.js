@@ -1,6 +1,16 @@
 const test = require('tape');
 const { arn2url } = require('..');
 
+test('test cloudformation', t => {
+  t.plan(2);
+
+  t.deepEqual(arn2url('arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/12345678-1234-1234-1234-123456789012'),
+    [null, 'https://us-west-2.console.aws.amazon.com/cloudformation/home#/stack/detail/?stackId=arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/12345678-1234-1234-1234-123456789012']);
+
+  t.deepEqual(arn2url('arn:aws:cloudformation:us-west-2:123456789012:changeSet/my-stack/12345678-1234-1234-1234-123456789012'),
+    [null, 'https://us-west-2.console.aws.amazon.com/cloudformation/home#/changeset/detail/?changeSetId=arn:aws:cloudformation:us-west-2:123456789012:changeSet/my-stack/12345678-1234-1234-1234-123456789012']);
+});
+
 test('test iam', t => {
   t.plan(6);
 
