@@ -2,7 +2,7 @@ const test = require('tape');
 const { arn2url } = require('..');
 
 test('test iam', t => {
-  t.plan(5);
+  t.plan(6);
 
   t.deepEqual(arn2url('arn:aws:iam::123456789012:root'),
     [null, 'https://console.aws.amazon.com/iam/home']);
@@ -18,6 +18,9 @@ test('test iam', t => {
 
   t.deepEqual(arn2url('arn:aws:iam::123456789012:policy/UsersManageOwnCredentials'),
     [null, 'https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::123456789012:policy/UsersManageOwnCredentials']);
+
+  t.deepEqual(arn2url('arn:aws:iam::123456789012:oidc-provider/accounts.google.com'),
+    [null, 'https://console.aws.amazon.com/iam/home#/providers/arn:aws:iam::123456789012:oidc-provider/accounts.google.com']);
 });
 
 test('test s3', t => {
