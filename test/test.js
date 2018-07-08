@@ -33,6 +33,23 @@ test('test iam', t => {
     [null, 'https://console.aws.amazon.com/iam/home#/providers/arn:aws:iam::123456789012:oidc-provider/accounts.google.com']);
 });
 
+test('test logs', t => {
+  t.plan(4);
+
+  t.deepEqual(arn2url('arn:aws:logs:us-east-1:*:*'),
+    [null, 'https://us-east-1.console.aws.amazon.com/cloudwatch/home#logs:']);
+
+  t.deepEqual(arn2url('arn:aws:logs:us-east-1:123456789012:*'),
+    [null, 'https://us-east-1.console.aws.amazon.com/cloudwatch/home#logs:']);
+
+  t.deepEqual(arn2url('arn:aws:logs:us-east-1:123456789012:log-group:my-log-group'),
+    [null, 'https://us-east-1.console.aws.amazon.com/cloudwatch/home#logStream:group=my-log-group']);
+
+  t.deepEqual(arn2url('arn:aws:logs:us-east-1:123456789012:log-group:my-log-group:log-stream:my-log-stream'),
+    [null, 'https://us-east-1.console.aws.amazon.com/cloudwatch/home#logEventViewer:group=my-log-group;stream=my-log-stream']);
+
+});
+
 test('test s3', t => {
   t.plan(2);
 
