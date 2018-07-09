@@ -22,6 +22,10 @@ arn2url('arn:aws:s3:::example-bucket', (err, url) => {
 });
 ```
 
+## Related
+
+- [opn-arn](https://github.com/nak2k/node-opn-arn)
+
 ## License
 
 MIT
