@@ -11,6 +11,16 @@ test('test cloudformation', t => {
     [null, 'https://us-west-2.console.aws.amazon.com/cloudformation/home#/changeset/detail/?changeSetId=arn:aws:cloudformation:us-west-2:123456789012:changeSet/my-stack/12345678-1234-1234-1234-123456789012']);
 });
 
+test('test dynamodb', t => {
+  t.plan(2);
+
+  t.deepEqual(arn2url('arn:aws:dynamodb:us-west-2:123456789012:table/my-table'),
+    [null, 'https://us-west-2.console.aws.amazon.com/dynamodb/home#tables:selected=my-table']);
+
+  t.deepEqual(arn2url('arn:aws:dynamodb:us-west-2:123456789012:table/my-table/stream/test'),
+    [null, 'https://us-west-2.console.aws.amazon.com/dynamodb/home#tables:selected=my-table']);
+});
+
 test('test iam', t => {
   t.plan(6);
 
