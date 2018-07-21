@@ -69,3 +69,13 @@ test('test s3', t => {
   t.deepEqual(arn2url('arn:aws:s3:::example-bucket/file'),
     [null, 'https://s3.console.aws.amazon.com/s3/object/example-bucket/file']);
 });
+
+test('test sns', t => {
+  t.plan(2);
+
+  t.deepEqual(arn2url('arn:aws:sns:us-east-1:123456789012:my_topic'),
+    [null, 'https://us-east-1.console.aws.amazon.com/sns/v2/home#/topics/arn:aws:sns:us-east-1:123456789012:my_topic']);
+
+  t.deepEqual(arn2url('arn:aws:sns:us-east-1:123456789012:my_topic:12345678-1234-1234-1234-123456789012'),
+    [null, 'https://us-east-1.console.aws.amazon.com/sns/v2/home#/subscriptions']);
+});
