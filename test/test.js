@@ -43,6 +43,13 @@ test('test iam', t => {
     [null, 'https://console.aws.amazon.com/iam/home#/providers/arn:aws:iam::123456789012:oidc-provider/accounts.google.com']);
 });
 
+test('test lambda', t => {
+  t.plan(1);
+
+  t.deepEqual(arn2url('arn:aws:lambda:us-east-1:123456789012:function:Test'),
+    [null, 'https://us-east-1.console.aws.amazon.com/lambda/home#/functions/Test']);
+});
+
 test('test logs', t => {
   t.plan(4);
 
