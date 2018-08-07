@@ -86,3 +86,10 @@ test('test sns', t => {
   t.deepEqual(arn2url('arn:aws:sns:us-east-1:123456789012:my_topic:12345678-1234-1234-1234-123456789012'),
     [null, 'https://us-east-1.console.aws.amazon.com/sns/v2/home#/subscriptions']);
 });
+
+test('test sqs', t => {
+  t.plan(1);
+
+  t.deepEqual(arn2url('arn:aws:sqs:us-east-1:123456789012:my-queue'),
+    [null, 'https://console.aws.amazon.com/sqs/home?region=us-east-1#view-messages:selected=https://sqs.us-east-1.amazonaws.com/123456789012/my-queue']);
+});
